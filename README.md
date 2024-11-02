@@ -12,7 +12,7 @@ Innovate Events is a web application designed to simplify event booking and mana
 - Database: MongoDB
 - ## Setup and Installation
 1. Clone the repository:
-   git clone https://github.com/yourusername/Innovate-Events.git
+   git clone https://github.com/Lakshmiyekkanti/Innovate-Events.git
    
 2. Navigate to the project directory:
    
