@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mysore Palace</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./stylesheet.css" />
+    <link rel="stylesheet" href="Chatbot.css" /> <!-- Add this line -->
+  </head>
+  <body>
+    <div class="main_home">
+      <video id="video-background" autoplay loop muted>
+        <source src="./vid_1.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div class="nav_home">
+        <div id="htl_name">
+          <a href="./index.html"
+            ><img src="http://www.languagecurry.com/img/mysore%20palace.png" alt="logo"
+           height="150px" width="200px"/></a>
+        </div>
+        <div id="nav_bar_home">
+          <a href="./menu_i.htm"><button id="menu">Menu</button></a>
+          <a href="./order.htm"><button id="order">Order</button></a>
+          <a href="./specialoffers.htm"
+            ><button id="spl_ofr">Special Offers</button></a
+          >
+          <a href="./newsletter.htm"><button id="nwsltr">Newsletter</button></a>
+          <a href="./about.htm"><button id="about">About</button></a>
+          <a href="./login .htm"><button id="login">Login</button></a>
+        </div>
+      </div>
+      <div class="access-form"></div>
+      <div class="h_page">
+        <div class="content">
+          <a href="./reservation.htm"><button id="resv">Reservation</button></a>
+          <a href="./ratingandreview.htm"
+            ><button id="r_and_r">Rating and Review</button></a
+          >
+          <a href="./gallery.htm"><button id="gal">Gallery</button></a>
+          <a href="./event.htm"><button id="evt">Events</button></a>
+        </div>
+        <div class="location">
+          <a
+            href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3898.157726673952!2d76.65259997465276!3d12.305162987952288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baf701103f9a1f9%3A0xc37fbae2a124da0d!2sMysore%20Palace!5e0!3m2!1sen!2sin!4v1730107089725!5m2!1sen!2sin"
+            class="location-icon"
+            ><img src="./gm.png" width="50px" alt="maps"
+          /></a>
+        </div>
+        <div class="contact">
+          <a href="https://www.facebook.com/kaldansamudhra/" class="social-icon"
+            ><i class="fab fa-facebook"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/kaldanhotels/?__coig_restricted=1"
+            class="social-icon"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            href="https://in.linkedin.com/company/kaldan-samudhra-palace"
+            class="social-icon"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chatbot HTML -->
+    <div class="chatbot">
+      <div class="chatbot-header">
+          <h2>Chatbot</h2>
+      </div>
+      <div class="chatbot">
+        <div class="chatbot-header">
+            <h2>Chatbot</h2>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages"></div>
+        <input type="text" id="userInput" placeholder="Type your message..." />
+        <button id="sendButton">
+            <i class="fas fa-paper-plane"></i> <!-- Font Awesome icon -->
+        </button>
+    </div>
+    
+  
+
+    <script src="Chatbot.js"></script> <!-- Add this line -->
+  </body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="login-form" class="login-container">
+        <h2>Admin Login</h2>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button id="login-button">Login</button>
+        <p id="login-error" class="error-message"></p>
+        <div id="login-success" class="success-message"></div>
+    </div>
+
+    <div id="dashboard" class="dashboard-container hidden">
+        <aside class="sidebar">
+            <h2>Dashboard</h2>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showSection('home')"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#" onclick="showSection('users')"><i class="fas fa-users"></i> Users</a></li>
+                    <li><a href="#" onclick="showSection('reservations')"><i class="fas fa-book"></i> Reservations</a></li>
+                    <li><a href="#" onclick="showSection('events')"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                    <li><a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <!-- Home Section -->
+            <div id="home" class="section">
+                <h1>Welcome to the Event Management Dashboard</h1>
+                <p>Get a quick overview of the key metrics and updates for managing your event reservations and users.</p>
+                <div class="stats-container">
+                    <div class="stat">
+                        <i class="fas fa-users"></i>
+                        <h3>Total Users</h3>
+                        <p id="total-users">Loading...</p>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>Total Reservations</h3>
+                        <p id="total-reservations">Loading...</p>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Recent Bookings</h3>
+                        <p id="recent-bookings">Loading...</p>
+                    </div>
+                </div>
+
+                <div class="recent-section">
+                    <h2>Recent Room and Table Reservations</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Customer Name</th>
+                                <th>Date</th>
+                                <th>Guests</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recent-reservations">
+                            <!-- Data will load here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Users Section -->
+            <div id="users" class="section hidden">
+                <h2>Users</h2>
+                <p>Manage user accounts and access levels.</p>
+                <ul id="user-list">
+                    <!-- User names will load here -->
+                </ul>
+            </div>
+
+            <!-- Reservations Section -->
+            <div id="reservations" class="section hidden">
+                <h2>Reservations</h2>
+                <p>View and manage room and table reservations.</p>
+                <div id="room-reservations">
+                    <h3>Room Reservations</h3>
+                    <ul id="room-reservation-list">
+                        <!-- Room reservations will load here -->
+                    </ul>
+                </div>
+                <div id="table-reservations">
+                    <h3>Table Reservations</h3>
+                    <ul id="table-reservation-list">
+                        <!-- Table reservations will load here -->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Events Section -->
+            <div id="events" class="section hidden">
+                <h2>Manage Events</h2>
+                <form id="event-form">
+                    <input type="text" id="event-name" placeholder="Event Name" required>
+                    <input type="date" id="event-date" required>
+                    <textarea id="event-description" placeholder="Event Description"></textarea>
+                    <button type="submit">Add Event</button>
+                </form>
+                <h3>Current Events</h3>
+                <ul id="event-list">
+                    <!-- Event names will load here -->
+                </ul>
+            </div>
+
+            <div id="settings" class="section hidden">
+                <h2>Settings</h2>
+                <p>Adjust dashboard and account settings here.</p>
+                <p>More attractive settings can go here.</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

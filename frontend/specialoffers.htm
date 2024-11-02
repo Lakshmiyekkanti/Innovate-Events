@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mysore Palace</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="./stylesheet.css">
+    <style>
+        /* Styles for the main page */
+        .special_page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .offer {
+            background-color: white;
+            margin: 15px;
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .offer:hover {
+            transform: translateY(-5px);
+        }
+        .offer h3 {
+            margin-left: 10px;
+        }
+        .festival {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 10px;
+        }
+        .festival img {
+            border-radius: 10px;
+        }
+        .cta-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            text-align: center;
+        }
+        .cta-button:hover {
+            background-color: #e55c4b;
+        }
+        .countdown {
+            font-size: 14px;
+            color: #ff0000;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        #live-time {
+            font-size: 18px;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+        /* Styles for the booking form */
+        .booking-form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin-top: 20px;
+            display: none; /* Hidden by default */
+        }
+        .booking-form h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .booking-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .booking-form input, .booking-form select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .booking-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .booking-form button:hover {
+            background-color: #e55c4b;
+        }
+    </style>
+</head>
+<body>
+    <div class="main_home">
+        <video id="video-background" autoplay loop muted>
+            <source src="./vid_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="nav_home">
+            <div id="htl_name">
+                <a href="./home.html"><img src="http://www.languagecurry.com/img/mysore%20palace.png" alt="logo" height="150px" width="200px"></a>
+            </div>
+            <div id="nav_bar_home">
+                <a href="./menu_h.htm"><button id="menu">Menu</button></a>
+                <a href="./order.htm"><button id="order">Order</button></a>
+                <a href="./home.html"><button id="home">Home</button></a>
+                <a href="./newsletter.htm"><button id="nwsltr">Newsletter</button></a>
+                <a href="./about.htm"><button id="about">About</button></a>
+                <a href="./index.html"><button id="login">Logout</button></a>
+            </div>
+        </div>
+        <div class="special_page">
+            <div id="live-time">Loading time...</div>
+            <div class="offer">
+                <h3>Dasara Offers</h3>
+                <div class="festival">
+                    <img width="150px" height="150px" src="https://images.pexels.com/photos/9956114/pexels-photo-9956114.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Dasara Festival">
+                    <p>Experience the grandeur of Dasara with our special offers! Enjoy traditional feasts, cultural performances, and exclusive discounts on our rooms and services. Immerse yourself in the festive spirit and create lasting memories with your loved ones.</p>
+                </div>
+                <div class="countdown">Limited Time Offer: 5 Days Left!</div>
+                <button class="cta-button">Book Now</button>
+            </div>
+            <div class="offer">
+                <h3>Onam Offers</h3>
+                <div class="festival">
+                    <p>Celebrate the harvest festival of Onam with us! Join in the vibrant festivities, relish the traditional Onam Sadhya, and partake in cultural events. Our Onam celebration promises to bring you the warmth and joy of this special occasion.</p>
+                    <img width="150px" height="150px" src="https://images.pexels.com/photos/8566097/pexels-photo-8566097.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Onam Festival">
+                </div>
+                <div class="countdown">Limited Time Offer: 3 Days Left!</div>
+                <button class="cta-button">Book Now</button>
+            </div>
+            <div class="offer">
+                <h3>Diwali Offers</h3>
+                <div class="festival">
+                    <img width="150px" height="150px" src="https://images.pexels.com/photos/4078516/pexels-photo-4078516.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Diwali Festival">
+                    <p>Celebrate the Festival of Lights with us at Mysore Palace. Our Diwali package includes illuminated decorations, traditional sweets, and a range of festive activities for all ages. Avail of our early bird discounts and make this Diwali truly memorable.</p>
+                </div>
+                <div class="countdown">Limited Time Offer: 7 Days Left!</div>
+                <button class="cta-button">Book Now</button>
+            </div>
+            <!-- Booking Form -->
+            <div class="booking-form" id="bookingForm">
+                <h2>Book Your Slot</h2>
+                <form>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" required>
+
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+
+                    <label for="time">Time:</label>
+                    <input type="time" id="time" name="time" required>
+
+                    <button type="submit">Submit Booking</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to display live time
+        function updateTime() {
+            const liveTimeElement = document.getElementById('live-time');
+            const now = new Date();
+            liveTimeElement.textContent = now.toLocaleTimeString();
+        }
+    
+        // Update the time every second
+        setInterval(updateTime, 1000);
+        updateTime(); // Initial call to display the time immediately
+    
+        // Function to show the booking form
+        function showBookingForm() {
+            const bookingForm = document.getElementById('bookingForm');
+            bookingForm.style.display = 'block';
+            window.scrollTo(0, document.body.scrollHeight); // Scroll to the form
+        }
+    
+        const bookNowButtons = document.querySelectorAll('.cta-button');
+        bookNowButtons.forEach(button => {
+            button.addEventListener('click', showBookingForm);
+        });
+    
+        // Handle form submission
+        const bookingForm = document.querySelector('.booking-form form');
+        bookingForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting normally
+    
+            // Collect form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+    
+            // Display success message
+            const isConfirmed = confirm('Your booking was successful! Click OK to see your booking details.');
+    
+            if (isConfirmed) {
+                // Display booking details
+                alert(`Booking Details:\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nDate: ${date}\nTime: ${time}`);
+            }
+        });
+    </script>
+    
+</body>
+</html>

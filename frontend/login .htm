@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Mysore Palace</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="./stylesheet.css" />
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f7f7f7;
+        }
+
+        .container {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            background-color: white;
+            width: 300px;
+        }
+
+        .container h2 {
+            text-align: center;
+        }
+
+        .container input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .container button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .container button:hover {
+            background-color: #0056b3;
+        }
+
+        .toggle-button {
+            margin-top: 15px;
+            text-align: center;
+            cursor: pointer;
+            color: #007bff;
+        }
+
+        .message {
+            text-align: center;
+            color: green;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 id="form-title">Login</h2>
+        <form id="login-form" onsubmit="handleLogin(event)">
+            <input type="email" id="email" name="email" placeholder="Email" required />
+            <input type="password" id="password" name="password" placeholder="Password" required />
+            <button type="submit">Login</button>
+        </form>
+
+        <form id="registration-form" style="display: none;" onsubmit="handleRegistration(event)">
+            <input type="text" id="reg-username" name="reg-username" placeholder="Username" required />
+            <input type="email" id="reg-email" name="reg-email" placeholder="Email" required />
+            <input type="password" id="reg-password" name="reg-password" placeholder="Password" required />
+            <button type="submit">Register</button>
+        </form>
+
+        <div class="toggle-button" id="toggle-form">Don't have an account? Register</div>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        // Toggle between login and registration forms
+        document.getElementById('toggle-form').addEventListener('click', function() {
+            const loginForm = document.getElementById('login-form');
+            const registrationForm = document.getElementById('registration-form');
+            const formTitle = document.getElementById('form-title');
+            const message = document.getElementById('message');
+
+            if (loginForm.style.display === "none") {
+                loginForm.style.display = "block";
+                registrationForm.style.display = "none";
+                formTitle.textContent = "Login";
+                message.textContent = "";
+                this.textContent = "Don't have an account? Register";
+            } else {
+                loginForm.style.display = "none";
+                registrationForm.style.display = "block";
+                formTitle.textContent = "Register";
+                message.textContent = "";
+                this.textContent = "Already have an account? Login";
+            }
+        });
+
+        // Handle login
+        async function handleLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('http://localhost:5000/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password }),
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    document.getElementById('message').textContent = "Login successful!";
+                    setTimeout(() => {
+                        window.location.href = "http://127.0.0.1:5501/web/home.html"; // Replace with your home page URL
+                    }, 2000);
+                } else {
+                    document.getElementById('message').textContent = data.error;
+                }
+            } catch (error) {
+                document.getElementById('message').textContent = "Login failed!";
+            }
+        }
+
+        // Handle registration
+        async function handleRegistration(event) {
+            event.preventDefault();
+            const regUsername = document.getElementById('reg-username').value;
+            const regEmail = document.getElementById('reg-email').value;
+            const regPassword = document.getElementById('reg-password').value;
+
+            try {
+                const response = await fetch('http://localhost:5000/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username: regUsername, email: regEmail, password: regPassword }),
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    document.getElementById('message').textContent = data.message;
+                    setTimeout(() => {
+                        document.getElementById('toggle-form').click(); // Redirect to login form
+                    }, 2000);
+                } else {
+                    document.getElementById('message').textContent = data.error;
+                }
+            } catch (error) {
+                document.getElementById('message').textContent = "Registration failed!";
+            }
+        }
+    </script>
+</body>
+</html>
